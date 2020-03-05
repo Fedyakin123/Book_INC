@@ -6,10 +6,20 @@
    {% if user.is_authenticated %}
    <p>Hi, {{user.username}}!</p>
    <p><a href="{% url 'logout' %}">Log Out</a></p>
+   <a href="{% url 'book_create' %}">Add Book</a>
    {% else %}
    <p>Hello, anon!</p>
    <a href="{% url 'login' %}">Log In</a>
    |
    <a href="{% url 'signup' %}">Sign Up</a>
    {% endif %}
-{% endblock content %}
+
+   {% for book in all_books %}
+   <div>
+       <h2>
+           <a href="{% url 'book_detail' book.pk %}">{{book.title}}</a>
+       </h2>
+       <p>By {{book.author}}</p>
+   </div>
+   {% endfor %}
+   {% endblock content %}

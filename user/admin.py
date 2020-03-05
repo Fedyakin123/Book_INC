@@ -11,4 +11,5 @@ class CustomUserAdmin(UserAdmin):
     list_display = ['email', 'username', 'year', 'is_staff']
 
 admin.site.register(CustomUser, CustomUserAdmin)
+
 # Register your models here.
